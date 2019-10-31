@@ -3,7 +3,7 @@ $('document').ready(function() {
     // start game
     function start() {
         var numbers = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
-        // make elements
+        // making elements
         for (let i=0; i<16; i++) {
             let number = numbers.splice(Math.floor(Math.random()*numbers.length), 1);
             wrapp.append(`<div class="container"><div class="front">${number}</div><div class="back"></div></div>`);
@@ -19,7 +19,7 @@ $('document').ready(function() {
     start();
     var containers = $('.container');
     var clicks = 0;
-    var clickedBoxes = [];  
+    var clickedBoxes = [];
     var matches = 0;
     var gameTime = 30;
     // time
@@ -48,7 +48,7 @@ $('document').ready(function() {
     // add clicks on elements
     function startGame() {
         containers.click(function() {
-            // remove clicks on matched elements
+            // condition for removing clicks on matched elements
             if ($(this).hasClass('lock') === false) {
                 $(this).find('.back').css('transform','perspective(900px) rotateY(180deg)');
                 $(this).find('.front').css('transform','perspective(900px) rotateY(0deg)');
