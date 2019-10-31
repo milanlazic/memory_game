@@ -1,17 +1,22 @@
 $('document').ready(function() {
     var wrapp = $('#wrapp');
-    var numbers = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
-    for (let i=0; i<16; i++) {
-        let number = numbers.splice(Math.floor(Math.random()*numbers.length), 1);
-        wrapp.append(`<div class="container"><div class="front">${number}</div><div class="back"></div></div>`);
+    function start() {
+        var numbers = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
+        for (let i=0; i<16; i++) {
+            let number = numbers.splice(Math.floor(Math.random()*numbers.length), 1);
+            wrapp.append(`<div class="container"><div class="front">${number}</div><div class="back"></div></div>`);
+        };
+        wrapp.append('<div class="timers"></div>');
+        wrapp.append('<div class="win"></div>');
+        wrapp.append('<div class="startBtn"></div>');
     }
+    start();
     var containers = $('.container');    
     var clicks = 0;
     var clickedBoxes = [];  
     var maches = 0;
 	var estTime = 30;
-	wrapp.append('<div class="timers"></div>');
-    var timeLeft = function() {
+    function timeLeft() {
     	var a = setInterval(function(){
 			if (maches === 8) {
 				clearInterval(a);
@@ -20,7 +25,11 @@ $('document').ready(function() {
     		if (estTime === 0) {
     			containers.off();
     			clearInterval(a);
-    			$('.timers').text('GAME OVER'); 
+                $('.timers').text('GAME OVER');
+                $('.win').text('You lost');
+                $('.win').fadeIn(400);
+                $('.startBtn').text('Try again');
+                $('.startBtn').fadeIn(700);
     		}else {
     			$('.timers').text('Time left: ' + estTime + ' sec'); 
     		}
@@ -43,8 +52,10 @@ $('document').ready(function() {
                         maches++;
                         if (maches === 8) {
                             setTimeout(function(){
-                                wrapp.append('<div class="win">You win</div>');
-                                $('.win').fadeIn(500);
+                                $('.win').text('You win');
+                                $('.win').fadeIn(400);
+                                $('.startBtn').text('Start');
+                                $('.startBtn').fadeIn(700);
                             },800);
                         };
                         clicks = 0;
@@ -66,4 +77,16 @@ $('document').ready(function() {
         });
     }
     startGame();
+    function restart() {
+        wrapp.html('');
+        start();
+        containers = $('.container');    
+        clicks = 0;
+        clickedBoxes = [];  
+        maches = 0;
+        estTime = 30;
+        startGame();
+        timeLeft();
+    }
+    $('.startBtn').on('click',restart);
 })

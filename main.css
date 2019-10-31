@@ -17,6 +17,7 @@
     box-sizing: border-box;
     position: relative;
     float: left;
+    user-select: none;
 }
 .back {
     width: 100px;
@@ -49,7 +50,7 @@
     width: 300px;
     height: 200px;
     position: absolute;
-    top: 100px;
+    top: 50px;
     left: 50px;
     background-color: turquoise;
     border: 1px solid green;
@@ -58,4 +59,21 @@
     line-height: 198px;
     font-weight: bold;
     text-align: center;
+}
+.startBtn {
+    display: none;
+    width: 300px;
+    height: 50px;
+    position: absolute;
+    bottom: 100px;
+    left: 50px;
+    background-color: turquoise;
+    border: 1px solid green;
+    border-radius: 25px;
+    font-size: 24px;
+    line-height: 48px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
 }
