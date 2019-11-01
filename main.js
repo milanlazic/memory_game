@@ -33,7 +33,7 @@ $('document').ready(function() {
             // if time is elapsed
             if (gameTime === 0) {
                 containers.off();
-    			clearInterval(a);
+    			clearInterval(sec);
                 $('.timers').text('GAME OVER');
                 $('.win').text('You lost');
                 $('.win').fadeIn(400);
@@ -95,9 +95,9 @@ $('document').ready(function() {
     function restart() {
         wrapp.html('');
         start();
-        containers = $('.container');    
+        containers = $('.container');
         clicks = 0;
-        clickedBoxes = [];  
+        clickedBoxes = [];
         matches = 0;
         gameTime = 30;
         startGame();
