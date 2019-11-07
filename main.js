@@ -50,7 +50,7 @@ $('document').ready(function() {
 
     // add clicks on elements
     function startGame() {
-        containers.on('click',function() {
+        containers.click(function() {
             // condition for removing clicks on matched elements
             if ($(this).hasClass('lock') === false) {
                 $(this).find('.back').css('transform','perspective(900px) rotateY(180deg)');
