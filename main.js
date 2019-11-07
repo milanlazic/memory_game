@@ -1,6 +1,5 @@
 $('document').ready(function() {
     let wrapp = $('#wrapp');
-    let containers = $('.container');
     let clicks = 0;
     let clickedBoxes = [];
     let matches = 0;
@@ -49,6 +48,7 @@ $('document').ready(function() {
     timeLeft();
 
     // add clicks on elements
+    let containers = $('.container');
     function startGame() {
         containers.click(function() {
             // condition for removing clicks on matched elements
