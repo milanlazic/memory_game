@@ -8,12 +8,12 @@
     margin: 50px auto;
     width: 400px;
 	height: 450px;
-    border: 2px solid red;
+    border: 2px solid #573d6d;
 }
 .container {
     width: 100px;
     height: 100px;
-    border: 1px solid #f58;
+    border: 1px solid #5e5a7a;
     box-sizing: border-box;
     position: relative;
     float: left;
@@ -23,7 +23,7 @@
     width: 100px;
     height: 100px;
     position: absolute;
-    background-color: orange;
+    background-color: #e5ca21;
     backface-visibility: hidden;
     transition: transform 700ms linear;
 }
